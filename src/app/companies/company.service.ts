@@ -26,14 +26,12 @@ export class CompanyService {
     return this.http.delete(`${this.API_BASE}/company/${companyId}`);
   }
 
-  addCompany(company: Company) {
-    const headers = new Headers({ 'content-type': 'application/json' });
-    return this.http.post(`${this.API_BASE}/company`, JSON.stringify(company), {});
+  addCompany(company: Company): Observable<Company> {
+    return this.http.post<Company>(`${this.API_BASE}/company`, company);
   }
 
-  updateCompany(company: Company) {
-    const headers = new Headers({ 'content-type': 'application/json' });
-    return this.http.put(`${this.API_BASE}/company/${company.id}`, JSON.stringify(company), {});
+  updateCompany(company: Company): Observable<Company> {
+    return this.http.put<Company>(`${this.API_BASE}/company/${company.id}`, company);
   }
 
 }

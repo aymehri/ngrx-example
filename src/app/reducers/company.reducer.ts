@@ -21,6 +21,12 @@ export function companyReducer(state = initialState, action: fromCompanies.Actio
         companies: state.companies.filter(company => company.id !== action.payload)
       };
     }
+    case fromCompanies.ADD_COMPANY_SUCCESS: {
+      state.companies.push(action.payload);
+      return state = {
+        companies: state.companies
+      };
+    }
     default: {
       return state;
     }

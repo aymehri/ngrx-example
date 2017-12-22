@@ -24,12 +24,22 @@ export class CompaniesComponent implements OnInit {
     this.companies$ = this.store.select(state => state.companies.companies);
   }
 
-  loadCompanies() {
+  loadCompanies(): void {
     this.store.dispatch(new companyActions.LoadCompaniesAction());
   }
 
-  delete(companyId: number) {
+  delete(companyId: number): void {
     this.store.dispatch(new companyActions.DeleteCompanyAction(companyId));
+  }
+
+  add(): void {
+    const company: Company = {
+      name: 'yep',
+      email: 'yep@azure.com',
+      phone: 12396595989
+    };
+    this.store.dispatch(new companyActions.AddCompanyAction(company));
+
   }
 
 }

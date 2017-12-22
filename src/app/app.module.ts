@@ -20,9 +20,10 @@ import { companyReducer } from './reducers/company.reducer';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     StoreModule.forRoot({ companies: companyReducer }),
     EffectsModule.forRoot([CompanyEffects]),
-    AppRoutingModule
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]

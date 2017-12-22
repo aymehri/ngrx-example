@@ -19,7 +19,6 @@ export class CompanyEffects {
     private companyService: CompanyService
   ) { }
 
-  // tslint:disable-next-line:member-ordering
   @Effect() loadCompanies$ = this.actions$
     .ofType(companyActions.LOAD_COMPANIES)
     .switchMap(() => {
@@ -27,7 +26,6 @@ export class CompanyEffects {
         .map(companies => new companyActions.LoadCompaniesSuccessAction(companies));
     });
 
-  // tslint:disable-next-line:member-ordering
   @Effect() deleteCompany$ = this.actions$
     .ofType(companyActions.DELETE_COMPANY)
     .switchMap((action: companyActions.DeleteCompanyAction) => {
@@ -35,4 +33,4 @@ export class CompanyEffects {
         .map(company => new companyActions.DeleteCompanySuccessAction(company.id));
     });
 
-};
+}

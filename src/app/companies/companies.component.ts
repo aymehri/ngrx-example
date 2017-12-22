@@ -1,7 +1,12 @@
+import { AppState } from './appState';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 import { CompanyService } from './company.service';
 import { Company } from './company';
+import { Store } from '@ngrx/store';
+
+import * as companyActions from './../actions/company.actions';
 
 @Component({
   selector: 'ngrx-companies',
@@ -10,18 +15,21 @@ import { Company } from './company';
 })
 export class CompaniesComponent implements OnInit {
 
-  companies: Array<Company>;
+  companies$: Observable<Array<Company>>;
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.companyService.getCompanies().subscribe(result => this.companies = result);
+    this.loadCompanies();
+    this.companies$ = this.store.select(state => state.companies.companies);
+  }
+
+  loadCompanies() {
+    this.store.dispatch(new companyActions.LoadCompaniesAction());
   }
 
   delete(companyId: number) {
-    this.companyService.deleteCompany(companyId).subscribe(() => {
-      this.companyService.getCompanies().subscribe(result => this.companies = result);
-    });
+    this.store.dispatch(new companyActions.DeleteCompanyAction(companyId));
   }
 
 }

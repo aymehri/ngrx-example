@@ -35,22 +35,22 @@ export class DeleteCompanySuccessAction implements Action {
 
 export class AddCompanyAction implements Action {
   readonly type = ADD_COMPANY;
-  constructor(public payload: number) { }
+  constructor(public payload: Company) { }
 }
 
 export class AddCompanySuccessAction implements Action {
   readonly type = ADD_COMPANY_SUCCESS;
-  constructor(public payload: number) { }
+  constructor(public payload: Company) { }
 }
 
 export class UpdateCompanyAction implements Action {
   readonly type = UPDATE_COMPANY;
-  constructor(public payload: number) { }
+  constructor(public payload: Company) { }
 }
 
 export class UpdateCompanySuccessAction implements Action {
   readonly type = UPDATE_COMPANY_SUCCESS;
-  constructor(public payload: number) { }
+  constructor(public payload: Company) { }
 }
 
 export type Actions

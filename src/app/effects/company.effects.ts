@@ -1,3 +1,4 @@
+import { Company } from './../companies/company';
 import { Injectable } from '@angular/core';
 import { CompanyService } from '../companies/company.service';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
@@ -31,6 +32,20 @@ export class CompanyEffects {
     .switchMap((action: companyActions.DeleteCompanyAction) => {
       return this.companyService.deleteCompany(action.payload)
         .map(company => new companyActions.DeleteCompanySuccessAction(company.id));
+    });
+
+  @Effect() addCompany$ = this.actions$
+    .ofType(companyActions.ADD_COMPANY)
+    .switchMap((action: companyActions.AddCompanyAction) => {
+      return this.companyService.addCompany(action.payload)
+        .map((company: Company) => new companyActions.AddCompanySuccessAction(company));
+    });
+
+  @Effect() updateCompany$ = this.actions$
+    .ofType(companyActions.UPDATE_COMPANY)
+    .switchMap((action: companyActions.UpdateCompanyAction) => {
+      return this.companyService.updateCompany(action.payload)
+        .map((company: Company) => new companyActions.UpdateCompanySuccessAction(company));
     });
 
 }

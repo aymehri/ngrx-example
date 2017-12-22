@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { CompanyService } from './company.service';
 import { Company } from './company';
 
 @Component({
@@ -10,9 +12,10 @@ export class CompaniesComponent implements OnInit {
 
   companies: Array<Company>;
 
-  constructor() { }
+  constructor(private companyService: CompanyService) { }
 
   ngOnInit() {
+    this.companyService.getCompanies().subscribe(result => this.companies =  result);
   }
 
 }

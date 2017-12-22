@@ -10,8 +10,8 @@ export const DELETE_COMPANY_SUCCESS = 'DELETE_COMPANY_SUCCESS';
 export const ADD_COMPANY = 'ADD_COMPANY';
 export const ADD_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
 
-export const UPDATE_COMPANY = 'ADD_COMPANY';
-export const UPDATE_COMPANY_SUCCESS = 'ADD_COMPANY_SUCCESS';
+export const UPDATE_COMPANY = 'UPDATE_COMPANY';
+export const UPDATE_COMPANY_SUCCESS = 'UPDATE_COMPANY_SUCCESS';
 
 export class LoadCompaniesAction implements Action {
   readonly type = LOAD_COMPANIES;

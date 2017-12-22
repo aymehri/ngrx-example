@@ -57,5 +57,9 @@ export type Actions
   = LoadCompaniesAction
   | LoadCompaniesSuccessAction
   | DeleteCompanyAction
-  | DeleteCompanySuccessAction;
+  | DeleteCompanySuccessAction
+  | AddCompanyAction
+  | AddCompanySuccessAction
+  | UpdateCompanyAction
+  | UpdateCompanySuccessAction;
 

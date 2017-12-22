@@ -1,5 +1,10 @@
 # NgrxExample
 
+```sh
+npm install @ngrx/core @ngrx/store @ngrx/effects --save
+npm install @ngrx/store-devtools --save
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
 
 ## Development server
